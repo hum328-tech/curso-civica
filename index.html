@@ -1,15 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
 <style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f7f7f7;
+}
+
+.contenedor{
+  max-width:1200px;
+  margin:auto;
+  background:#f7f7f7;
+}
+
 .flip-card{
   width:520px;
   height:260px;
-  perspective:1200px;
+  perspective:1000px;
 }
 
 .flip-inner{
+  position:relative;
   width:100%;
   height:100%;
-  position:relative;
-  transition:transform .8s;
+  transition:transform 0.8s;
   transform-style:preserve-3d;
 }
 
@@ -23,9 +40,14 @@
   width:100%;
   height:100%;
   backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
   border-radius:6px;
   overflow:hidden;
   box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
+
+.flip-front{
+  background:#333;
 }
 
 .flip-front img{
@@ -63,82 +85,60 @@
   font-weight:bold;
 }
 </style>
+</head>
 
-<div style="max-width:1200px; margin:auto; font-family:Arial, sans-serif; background:#f7f7f7;">
-<div style="max-width:1200px; margin:auto; font-family:Arial, sans-serif; background:#f7f7f7;">
-  
+<body>
+
+<div class="contenedor">
+
   <!-- HERO -->
   <div style="position:relative; width:100%; height:450px; overflow:hidden;">
     <img 
       src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926684/preview"
-      alt="Formación Cívica y Ética"
       style="width:100%; height:100%; object-fit:cover; display:block;">
 
     <div style="position:absolute; top:25%; left:9%; color:white;">
-      <h1 style="font-size:42px; margin-bottom:25px;">
-        Formación Cívica y Ética
-      </h1>
-
-      <details>
-        <summary style="background:#00a884; color:white; padding:12px 60px; border-radius:6px; font-size:24px; cursor:pointer; list-style:none; font-weight:bold;">
-          › Bienvenida ‹
-        </summary>
-
-        <div style="background:rgba(255,255,255,.95); color:#222; padding:22px; margin-top:15px; border-radius:12px; width:420px; font-size:17px; line-height:1.6;">
-          La formación cívica y ética permite comprender cómo nuestras decisiones, acciones y valores influyen en la convivencia con los demás y en la construcción de una sociedad más justa.
-          <br><br>
-          A lo largo de este curso analizaremos temas relacionados con la identidad, los derechos humanos, la responsabilidad, la participación ciudadana, la diversidad y la resolución de conflictos.
-        </div>
-      </details>
+      <h1 style="font-size:42px;">Formación Cívica y Ética</h1>
     </div>
   </div>
 
   <!-- COMPETENCIA -->
   <div style="background:#05394a; color:white; text-align:center; padding:35px 80px;">
     <h2 style="color:#00b386; font-size:34px; margin-top:0;">Competencia</h2>
-    <p style="font-size:22px; line-height:1.5; margin:0;">
-      Analizar la importancia de la identidad, los derechos, la convivencia y la participación ciudadana para tomar decisiones responsables dentro de la sociedad.
+    <p style="font-size:22px;">
+      Analizar la importancia de la identidad, los derechos, la convivencia y la participación ciudadana.
     </p>
   </div>
 
   <!-- CONTENIDO -->
   <div style="text-align:center; padding:30px 20px;">
     <h2 style="color:#00a884; font-size:34px;">Contenido</h2>
-    <p style="font-size:16px;">Haz clic en la imagen para ver el contenido.</p>
+    <p>Pasa el cursor sobre el módulo.</p>
 
     <div style="display:flex; gap:25px; justify-content:center; flex-wrap:wrap; margin-top:35px;">
 
-      <!-- MÓDULO 1 -->
-   <div class="flip-card">
-  <div class="flip-inner">
+      <!-- MÓDULO 1 CON FLIP -->
+      <div class="flip-card">
+        <div class="flip-inner">
 
-    <div class="flip-front">
-      <img src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926745/preview">
-      <div class="module-title">Módulo 1</div>
-    </div>
-
-    <div class="flip-back">
-      <a href="tema1.html" target="_self" class="topic-button">
-        Entrar al Tema 1
-      </a>
-    </div>
-
-  </div>
-</div>
-
-      <!-- MÓDULO 2 -->
-      <a href="#" style="text-decoration:none;">
-        <div style="position:relative; width:520px; height:260px; overflow:hidden; border-radius:4px; box-shadow:0 6px 16px rgba(0,0,0,.25);">
-          <img 
-            src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926745/preview"
-            style="width:100%; height:100%; object-fit:cover; filter:brightness(55%);">
-          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:34px; font-weight:bold;">
-            Módulo 2
+          <div class="flip-front">
+            <img src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926745/preview">
+            <div class="module-title">Módulo 1</div>
           </div>
+
+          <div class="flip-back">
+            <a href="tema1.html" target="_self" class="topic-button">
+              Entrar al Tema 1
+            </a>
+          </div>
+
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
 
 </div>
+
+</body>
+</html>
