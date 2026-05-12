@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Formación Cívica y Ética</title>
+
+<style>
+
+/* ===== GENERAL ===== */
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f7f6;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    position:relative;
+    width:100%;
+    text-align:center;
+}
+
+.hero img{
+    width:100%;
+    display:block;
+}
+
+.welcome-box{
+    position:absolute;
+    top:42%;
+    left:22%;
+}
+
+.welcome-box details summary{
+    background:linear-gradient(90deg,#00a884,#00c896);
+    color:white;
+    padding:14px 40px;
+    border-radius:50px;
+    font-size:24px;
+    cursor:pointer;
+    list-style:none;
+    box-shadow:0 5px 18px rgba(0,0,0,.25);
+    transition:.3s;
+}
+
+.welcome-box details summary:hover{
+    transform:scale(1.03);
+}
+
+.welcome-content{
+    background:rgba(255,255,255,.97);
+    padding:22px;
+    margin-top:15px;
+    border-radius:18px;
+    width:420px;
+    font-size:18px;
+    line-height:1.7;
+    text-align:left;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* ===== FLIP CARD ===== */
+
+.flip-card{
+    width:250px;
+    height:250px;
+    margin:50px auto;
+    perspective:1200px;
+}
+
+.flip-inner{
+    width:100%;
+    height:100%;
+    position:relative;
+    transition:transform .8s;
+    transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-inner{
+    transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:18px;
+    overflow:hidden;
+    backface-visibility:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+/* FRONT */
+
+.flip-front img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* BACK */
+
+.flip-back{
+    background:linear-gradient(180deg,#00a884,#06795e);
+    transform:rotateY(180deg);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:15px;
+    box-sizing:border-box;
+}
+
+.topic-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.topic-grid a{
+    background:white;
+    color:#08a57d;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.topic-grid a:hover{
+    background:#dff7ef;
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<div class="hero">
+
+    <img
+    src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926684/preview"
+    alt="Formación Cívica y Ética">
+
+    <div class="welcome-box">
+
+        <details>
+
+            <summary>
+                › Bienvenida ‹
+            </summary>
+
+            <div class="welcome-content">
+
+                La formación cívica y ética permite comprender cómo nuestras decisiones, acciones y valores influyen en la convivencia con los demás y en la construcción de una sociedad más justa.
+
+                <br><br>
+
+                A lo largo de este curso analizaremos temas relacionados con la identidad, los derechos humanos, la responsabilidad, la participación ciudadana, la diversidad y la resolución de conflictos vinculándolos con situaciones reales de la vida cotidiana.
+
+            </div>
+
+        </details>
+
+    </div>
+
+</div>
+
+<!-- FLIP CARD -->
+
+<div class="flip-card">
+
+    <div class="flip-inner">
+
+        <!-- FRONT -->
+
+        <div class="flip-front">
+
+            <img
+            src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926745/preview">
+
+        </div>
+
+        <!-- BACK -->
+
+        <div class="flip-back">
+
+            <div class="topic-grid">
+
+                <a href="tema1.html">
+                    Topic 1
+                </a>
+
+                <a href="#">
+                    Topic 2
+                </a>
+
+                <a href="#">
+                    Topic 3
+                </a>
+
+                <a href="#">
+                    Topic 4
+                </a>
+
+                <a href="#">
+                    Topic 5
+                </a>
+
+                <a href="#">
+                    Topic 6
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
