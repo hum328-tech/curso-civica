@@ -17,8 +17,8 @@ body{
 }
 
 .flip-card{
-  width:520px;
-  height:260px;
+  width:350px;
+  height:250px;
   perspective:1000px;
 }
 
@@ -41,13 +41,9 @@ body{
   height:100%;
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
-  border-radius:6px;
+  border-radius:8px;
   overflow:hidden;
   box-shadow:0 6px 16px rgba(0,0,0,.25);
-}
-
-.flip-front{
-  background:#333;
 }
 
 .flip-front img{
@@ -63,8 +59,9 @@ body{
   left:50%;
   transform:translate(-50%,-50%);
   color:white;
-  font-size:34px;
+  font-size:32px;
   font-weight:bold;
+  text-align:center;
 }
 
 .flip-back{
@@ -73,16 +70,53 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:15px;
+  box-sizing:border-box;
 }
 
-.topic-button{
+.topic-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  width:100%;
+}
+
+.topic-grid a{
   background:white;
   color:#00a884;
-  padding:15px 35px;
-  border-radius:8px;
+  padding:9px;
+  border-radius:7px;
   text-decoration:none;
-  font-size:22px;
+  font-size:15px;
   font-weight:bold;
+  text-align:center;
+}
+
+.topic-grid a:hover{
+  background:#dff7ef;
+}
+
+.welcome-box details summary{
+  background:#00a884;
+  color:white;
+  padding:12px 60px;
+  border-radius:6px;
+  font-size:24px;
+  cursor:pointer;
+  list-style:none;
+  font-weight:bold;
+  box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+.welcome-content{
+  background:rgba(255,255,255,.95);
+  color:#222;
+  padding:22px;
+  margin-top:15px;
+  border-radius:12px;
+  width:420px;
+  font-size:17px;
+  line-height:1.6;
 }
 </style>
 </head>
@@ -97,41 +131,101 @@ body{
       src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926684/preview"
       style="width:100%; height:100%; object-fit:cover; display:block;">
 
-    <div style="position:absolute; top:25%; left:9%; color:white;">
-      <h1 style="font-size:42px;">Formación Cívica y Ética</h1>
+    <div style="position:absolute; top:22%; left:9%; color:white;">
+      <h1 style="font-size:42px; margin-bottom:25px;">
+        Formación Cívica y Ética
+      </h1>
+
+      <div class="welcome-box">
+        <details>
+          <summary>› Bienvenida ‹</summary>
+
+          <div class="welcome-content">
+            La formación cívica y ética permite comprender cómo nuestras decisiones, acciones y valores influyen en la convivencia con los demás y en la construcción de una sociedad más justa.
+            <br><br>
+            A lo largo de este curso analizaremos temas relacionados con la identidad, los derechos humanos, la responsabilidad, la participación ciudadana, la diversidad y la resolución de conflictos vinculándolos con situaciones reales de la vida cotidiana.
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 
   <!-- COMPETENCIA -->
   <div style="background:#05394a; color:white; text-align:center; padding:35px 80px;">
     <h2 style="color:#00b386; font-size:34px; margin-top:0;">Competencia</h2>
-    <p style="font-size:22px;">
-      Analizar la importancia de la identidad, los derechos, la convivencia y la participación ciudadana.
+    <p style="font-size:22px; line-height:1.5; margin:0;">
+      Analizar la importancia de la identidad, los derechos, la convivencia y la participación ciudadana para tomar decisiones responsables dentro de la sociedad.
     </p>
   </div>
 
   <!-- CONTENIDO -->
   <div style="text-align:center; padding:30px 20px;">
     <h2 style="color:#00a884; font-size:34px;">Contenido</h2>
-    <p>Pasa el cursor sobre el módulo.</p>
+    <p>Pasa el cursor sobre cada módulo para ver sus temas.</p>
 
     <div style="display:flex; gap:25px; justify-content:center; flex-wrap:wrap; margin-top:35px;">
 
-      <!-- MÓDULO 1 CON FLIP -->
+      <!-- MÓDULO 1 -->
       <div class="flip-card">
         <div class="flip-inner">
-
           <div class="flip-front">
             <img src="https://irlandesnuevolaredo.instructure.com/courses/2610/files/926745/preview">
             <div class="module-title">Módulo 1</div>
           </div>
 
           <div class="flip-back">
-            <a href="tema1.html" target="_self" class="topic-button">
-              Entrar al Tema 1
-            </a>
+            <div class="topic-grid">
+              <a href="tema1.html" target="_self">Tema 1</a>
+              <a href="#" target="_self">Tema 2</a>
+              <a href="#" target="_self">Tema 3</a>
+              <a href="#" target="_self">Tema 4</a>
+              <a href="#" target="_self">Tema 5</a>
+              <a href="#" target="_self">Tema 6</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÓDULO 2 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="https://irlandesnuevolaredo.instructure.com/courses/2610/files?preview=928871">
+            <div class="module-title">Módulo 2</div>
           </div>
 
+          <div class="flip-back">
+            <div class="topic-grid">
+              <a href="#" target="_self">Tema 1</a>
+              <a href="#" target="_self">Tema 2</a>
+              <a href="#" target="_self">Tema 3</a>
+              <a href="#" target="_self">Tema 4</a>
+              <a href="#" target="_self">Tema 5</a>
+              <a href="#" target="_self">Tema 6</a>
+              <a href="#" target="_self">Tema 7</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÓDULO 3 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <img src="https://irlandesnuevolaredo.instructure.com/courses/2610/files?preview=928873">
+            <div class="module-title">Módulo 3</div>
+          </div>
+
+          <div class="flip-back">
+            <div class="topic-grid">
+              <a href="#" target="_self">Tema 1</a>
+              <a href="#" target="_self">Tema 2</a>
+              <a href="#" target="_self">Tema 3</a>
+              <a href="#" target="_self">Tema 4</a>
+              <a href="#" target="_self">Tema 5</a>
+              <a href="#" target="_self">Tema 6</a>
+            </div>
+          </div>
         </div>
       </div>
 
