@@ -3,230 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Tema 8</title>
+<title>Tema dinámico</title>
 
 <style>
-body{
-  margin:0;
-  background:#111827;
-  font-family:Arial, sans-serif;
-  color:#E0E1DD;
-}
-
-.contenedor{
-  max-width:1000px;
-  margin:auto;
-  padding:25px;
-}
-
-.portada{
-  background:linear-gradient(135deg,#1B263B,#0D1B2A);
-  color:white;
-  padding:60px 35px;
-  border-radius:22px;
-  text-align:center;
-  margin-bottom:25px;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 0 40px rgba(247,127,0,.18);
-}
-
-.portada::before{
-  content:"";
-  position:absolute;
-  width:350px;
-  height:350px;
-  background:rgba(247,127,0,.08);
-  border-radius:50%;
-  top:-140px;
-  right:-120px;
-}
-
-.portada h1{
-  margin:0;
-  font-size:42px;
-  position:relative;
-  z-index:2;
-}
-
-.portada h2{
-  margin:15px 0 0;
-  font-size:30px;
-  position:relative;
-  z-index:2;
-  color:#FFD166;
-}
-
-.portada p{
-  margin-top:18px;
-  font-size:19px;
-  line-height:1.7;
-  position:relative;
-  z-index:2;
-}
-
-.tarjeta{
-  background:#E0E1DD;
-  color:#1B263B;
-  padding:28px;
-  border-radius:18px;
-  margin-bottom:25px;
-  box-shadow:0 6px 18px rgba(0,0,0,.22);
-}
-
-.tarjeta h2{
-  margin-top:0;
-  color:#1B263B;
-}
-
-.tarjeta p{
-  font-size:17px;
-  line-height:1.8;
-}
-
-.storyline{
-  border-left:10px solid #F77F00;
-}
-
-.mision{
-  background:#1B263B;
-  color:white;
-  box-shadow:0 0 25px rgba(247,127,0,.15);
-}
-
-.mision h2{
-  color:#FFD166;
-}
-
-.ruta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:18px;
-  margin-top:25px;
-}
-
-.paso{
-  flex:1;
-  min-width:180px;
-  background:#F5F5F5;
-  padding:20px;
-  border-radius:16px;
-  text-align:center;
-  border-top:8px solid #F77F00;
-}
-
-.paso strong{
-  display:block;
-  color:#1B263B;
-  margin-bottom:10px;
-  font-size:18px;
-}
-
-.objetivos{
-  background:#D62828;
-  color:white;
-}
-
-.objetivos h2{
-  color:white;
-}
-
-.objetivos ul{
-  line-height:2;
-  font-size:17px;
-}
-
-.frase-impacto{
-  font-size:27px;
-  font-weight:bold;
-  color:#D62828;
-  text-align:center;
-  margin-top:30px;
-  line-height:1.6;
-}
-
-.alerta{
-  background:#1B263B;
-  color:white;
-  padding:22px;
-  border-radius:16px;
-  margin-top:25px;
-  border-left:8px solid #F77F00;
-}
-
-.alerta strong{
-  color:#FFD166;
-}
-
-.cargando{
-  background:#E0E1DD;
-  color:#1B263B;
-  padding:28px;
-  border-radius:18px;
-  text-align:center;
-  font-size:20px;
-}
-
-.error{
-  background:#D62828;
-  color:white;
-}
+body{margin:0;background:#111827;font-family:Arial,sans-serif;color:#E0E1DD;}
+.contenedor{max-width:1000px;margin:auto;padding:25px;}
+.portada{background:linear-gradient(135deg,#1B263B,#0D1B2A);color:white;padding:60px 35px;border-radius:22px;text-align:center;margin-bottom:25px;box-shadow:0 0 40px rgba(247,127,0,.18);}
+.portada h1{margin:0;font-size:42px;color:white;}
+.portada p{font-size:19px;line-height:1.7;}
+.tarjeta{background:#E0E1DD;color:#1B263B;padding:28px;border-radius:18px;margin-bottom:25px;box-shadow:0 6px 18px rgba(0,0,0,.22);border-left:10px solid #F77F00;}
+.tarjeta h2{margin-top:0;color:#1B263B;}
+.tarjeta h3{color:#D62828;margin-top:25px;}
+.tarjeta p{font-size:17px;line-height:1.8;}
+.tarjeta ul,.tarjeta ol{font-size:17px;line-height:2;}
+.tarjeta table{width:100%;border-collapse:collapse;margin-top:20px;background:white;}
+.tarjeta th{background:#1B263B;color:white;padding:14px;border:1px solid #ccc;}
+.tarjeta td{padding:14px;border:1px solid #ccc;}
+.cargando{background:#E0E1DD;color:#1B263B;padding:28px;border-radius:18px;text-align:center;font-size:20px;}
+.error{background:#D62828;color:white;}
 </style>
 </head>
 
 <body>
 
 <div class="contenedor">
-
   <div class="portada">
-    <h1>Módulo 2</h1>
-    <h2 id="tituloTema">Cargando tema...</h2>
-    <p>Respeto, empatía y vida en comunidad</p>
+    <h1 id="tituloPrincipal">Cargando tema...</h1>
+    <p>Contenido tomado desde Canvas</p>
   </div>
 
   <div id="contenido" class="cargando">
     Cargando contenido desde Canvas...
   </div>
-
 </div>
 
 <script>
-const API_URL = "https://canvas-tema8.hum328.workers.dev";
+const API_URL = "https://canvas-tema8.hum328.workers.dev/";
 
-function limpiarHTML(html){
+function limpiarCanvas(html){
   return html
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<\/p>/gi, "\n")
-    .replace(/<p[^>]*>/gi, "")
-    .replace(/<[^>]*>/g, "")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/\n{2,}/g, "\n")
+    .replace(/<h1[^>]*>/gi,"# ")
+    .replace(/<\/h1>/gi,"\n")
+    .replace(/<h2[^>]*>/gi,"## ")
+    .replace(/<\/h2>/gi,"\n")
+    .replace(/<h3[^>]*>/gi,"### ")
+    .replace(/<\/h3>/gi,"\n")
+    .replace(/<br\s*\/?>/gi,"\n")
+    .replace(/<\/p>/gi,"\n")
+    .replace(/<p[^>]*>/gi,"")
+    .replace(/<li[^>]*>/gi,"* ")
+    .replace(/<\/li>/gi,"\n")
+    .replace(/<\/ul>/gi,"\n")
+    .replace(/<\/ol>/gi,"\n")
+    .replace(/<[^>]*>/g,"")
+    .replace(/&nbsp;/g," ")
+    .replace(/&amp;/g,"&")
+    .replace(/&lt;/g,"<")
+    .replace(/&gt;/g,">")
+    .replace(/\n{3,}/g,"\n\n")
     .trim();
 }
 
-function extraer(texto, inicio, fin){
-  const regex = new RegExp("\\[" + inicio + "\\]([\\s\\S]*?)(?=\\[" + fin + "\\]|$)", "i");
-  const match = texto.match(regex);
-  return match ? match[1].trim() : "";
-}
+function convertirMarkdownSimple(texto){
+  const lineas = texto.split("\n");
+  let titulo = "Tema";
+  let html = "";
+  let tarjetaAbierta = false;
+  let listaAbierta = false;
 
-function convertirLineas(texto){
-  return texto
-    .split("\n")
-    .map(linea => linea.trim())
-    .filter(linea => linea.length > 0)
-    .map(linea => linea.replace(/^[-•\d.)]+\s*/, ""));
-}
+  function cerrarLista(){
+    if(listaAbierta){
+      html += "</ul>";
+      listaAbierta = false;
+    }
+  }
 
-function parrafos(texto){
-  return texto
-    .split("\n")
-    .map(linea => linea.trim())
-    .filter(linea => linea.length > 0)
-    .map(linea => `<p>${linea}</p>`)
-    .join("");
+  function cerrarTarjeta(){
+    cerrarLista();
+    if(tarjetaAbierta){
+      html += "</div>";
+      tarjetaAbierta = false;
+    }
+  }
+
+  lineas.forEach(linea=>{
+    linea = linea.trim();
+    if(!linea) return;
+
+    if(linea.startsWith("# ")){
+      titulo = linea.replace("# ","").trim();
+      return;
+    }
+
+    if(linea.startsWith("## ")){
+      cerrarTarjeta();
+      html += `<div class="tarjeta"><h2>${linea.replace("## ","").trim()}</h2>`;
+      tarjetaAbierta = true;
+      return;
+    }
+
+    if(linea.startsWith("### ")){
+      cerrarLista();
+      if(!tarjetaAbierta){
+        html += `<div class="tarjeta">`;
+        tarjetaAbierta = true;
+      }
+      html += `<h3>${linea.replace("### ","").trim()}</h3>`;
+      return;
+    }
+
+    if(linea.startsWith("* ") || linea.startsWith("- ")){
+      if(!tarjetaAbierta){
+        html += `<div class="tarjeta">`;
+        tarjetaAbierta = true;
+      }
+      if(!listaAbierta){
+        html += "<ul>";
+        listaAbierta = true;
+      }
+      html += `<li>${linea.replace(/^[-*]\s*/,"")}</li>`;
+      return;
+    }
+
+    cerrarLista();
+
+    if(!tarjetaAbierta){
+      html += `<div class="tarjeta">`;
+      tarjetaAbierta = true;
+    }
+
+    html += `<p>${linea}</p>`;
+  });
+
+  cerrarTarjeta();
+
+  return {titulo, html};
 }
 
 async function cargarContenido(){
@@ -234,61 +145,12 @@ async function cargarContenido(){
     const respuesta = await fetch(API_URL);
     const data = await respuesta.json();
 
-    document.getElementById("tituloTema").textContent = data.name || "Tema";
+    const texto = limpiarCanvas(data.description || "");
+    const resultado = convertirMarkdownSimple(texto);
 
-    const texto = limpiarHTML(data.description || "");
-
-    const punto = extraer(texto, "PUNTO_PARTIDA", "MISION");
-    const mision = extraer(texto, "MISION", "RUTA");
-    const ruta = extraer(texto, "RUTA", "APRENDEREMOS");
-    const aprenderemos = extraer(texto, "APRENDEREMOS", "FIN");
-
-    const pasos = convertirLineas(ruta);
-    const aprendizajes = convertirLineas(aprenderemos);
-
+    document.getElementById("tituloPrincipal").textContent = resultado.titulo || data.name || "Tema";
     document.getElementById("contenido").className = "";
-
-    document.getElementById("contenido").innerHTML = `
-      <div class="tarjeta storyline">
-        <h2>🤝 Punto de partida</h2>
-        ${parrafos(punto)}
-
-        <div class="frase-impacto">
-          La convivencia puede construir una comunidad…
-          o destruirla.
-        </div>
-
-        <div class="alerta">
-          <strong>⚠️ SISTEMA DE CONVIVENCIA ACTIVADO:</strong>
-          <br><br>
-          Cada acción afecta el ambiente colectivo.
-        </div>
-      </div>
-
-      <div class="tarjeta mision">
-        <h2>🎯 Misión del tema</h2>
-        ${parrafos(mision)}
-      </div>
-
-      <div class="tarjeta">
-        <h2>🧭 Ruta del aprendizaje</h2>
-
-        <div class="ruta">
-          ${pasos.map((paso, index) => `
-            <div class="paso">
-              <strong>${index + 1}. ${paso}</strong>
-            </div>
-          `).join("")}
-        </div>
-      </div>
-
-      <div class="tarjeta objetivos">
-        <h2>📌 Lo que aprenderás</h2>
-        <ul>
-          ${aprendizajes.map(item => `<li>${item}</li>`).join("")}
-        </ul>
-      </div>
-    `;
+    document.getElementById("contenido").innerHTML = resultado.html;
 
   }catch(error){
     document.getElementById("contenido").className = "cargando error";
